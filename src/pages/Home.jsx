@@ -64,42 +64,30 @@ const Home = () => {
         {filteredData.map((product, index) => {
           return (
             <div key={index} className="min-w-40 min-h-40 bg-slate-200">
-              {category === "Mobiles" ? (
-                <>
-                  <h2 className="font-bold text-lg">{product.title}||</h2>
-                  <p className="text-sm">Price: ₹{product.price}</p>
-                  <p className="text-sm">Storage: {product.storage}</p>
-                  <p className="text-sm">Brand: {product.brand}</p>
-                  <p className="text-sm">color: {product.color}</p>
-                </>
-              ) : category === "Books" ? (
-                <>
-                  <h2 className="font-bold text-lg">{product.title}</h2>
-                  <p className="text-sm">Price: ₹{product.price}</p>
-                  <p className="text-sm">Author: {product.author}</p>
-                  <p className="text-sm">Genre: {product.genre}</p>
-                </>
-              ) : category === "Appliances" ? (
-                <>
-                  <h2 className="font-bold text-lg">{product.title}</h2>
-                  <p className="text-sm">Price: ₹{product.price}</p>
-                  <p className="text-sm">Brand: {product.brand}</p>
-                  <p className="text-sm">Color: {product.color}</p>
-                </>
-              ) : (
-                <>
-                  <h2 className="font-bold text-lg">
-                    {product.title ? product.title : product.model}
-                  </h2>
-                  <p className="text-sm">Price: ₹{product.price}</p>
-                  <p className="text-sm">
-                    {product.brand ? product.brand : product.author}
-                  </p>
-                  <p className="text-sm">
-                    {product.color ? product.color : product.genre}
-                  </p>
-                </>
-              )}
+              <div className="p-2">
+                <h2 className="font-bold text-lg">
+                  {" "}
+                  {category === "Books"
+                    ? `Title : ${product.title}`
+                    : `Model : ${product.model}`}
+                </h2>
+                <p className="text-sm">Price: ₹{product.price}</p>
+                <p className="text-sm">
+                  {category === "Mobiles"
+                    ? `Storage : ${product.storage}`
+                    : null}
+                </p>
+                <p className="text-sm">
+                  {category === "Books"
+                    ? `Author : ${product.author}`
+                    : `Brand : ${product.brand}`}
+                </p>
+                <p className="text-sm">
+                  {category === "Books"
+                    ? `Genre : ${product.genre}`
+                    : `Color : ${product.color}`}
+                </p>
+              </div>
             </div>
           );
         })}
