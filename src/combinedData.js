@@ -1,6 +1,6 @@
-export const combinedData = [
+export const productsData = [
   {
-    category: "Mobile",
+    category: "Mobiles",
     products: [
       {
         id: 1,
@@ -327,7 +327,7 @@ export const combinedData = [
     ],
   },
   {
-    category: "Home Appliances",
+    category: "Appliances",
     products: [
       {
         id: 21,

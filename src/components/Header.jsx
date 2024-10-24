@@ -1,30 +1,41 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setCategory } from "../store/filterSlice";
+import { useDispatch } from "react-redux";
+import { setCategory } from "../store/producSlice";
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const category = useSelector((state) => state.filterSlice.category); // Get the current category from the state
-
-  const handleCategoryChange = (e) => {
-    dispatch(setCategory(e.target.value));
+  const Dispatch = useDispatch();
+  const handleChange = (e) => {
+    Dispatch(setCategory(e.target.value));
   };
-
   return (
-    <header className="w-full">
-      <div className="flex justify-between w-[90vw] mx-auto gap-10">
-        <p className="text-4xl font-bold text-blue-700">Logo</p>
-        <div className="flex gap-6 items-center">
-          <label htmlFor="category">Category:</label>
-          <select id="category" value={category} onChange={handleCategoryChange}>
-            <option value="All">All</option>
-            <option value="Mobile">Mobile</option>
-            <option value="Books">Books</option>
-            <option value="Home Appliances">Home Appliances</option>
-          </select>
-        </div>
+    <header className="w-[90%] mx-auto flex justify-between items-center py-4">
+      <div>
+        <h1 className="text-4xl font-bold">Logo</h1>
+      </div>
+      <div className="flex gap-4 items-center">
+        <label htmlFor="category">Category</label>
+        <select id="category" onChange={handleChange}>
+          <option value="All">All</option>
+          <option value="Mobiles">Mobiles</option>
+          <option value="Books">Books</option>
+          <option value="Appliances">Appliances</option>
+        </select>
       </div>
     </header>
   );
 };
-
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
